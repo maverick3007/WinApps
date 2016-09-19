@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { routing,
          appRoutingProviders }  from './app.routing';
 
+import { AuthenticationService } from './services/authentication.service';
+import './rxjs-operators';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 
 @NgModule({
@@ -20,7 +22,7 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
     HttpModule,
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
