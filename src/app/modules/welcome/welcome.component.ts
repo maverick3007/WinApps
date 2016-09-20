@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../services/authentication.service'
 
 
 @Component({
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
+
 export class WelcomeComponent implements OnInit {
   cred : {
     userName: string;
@@ -13,7 +15,7 @@ export class WelcomeComponent implements OnInit {
     remember: boolean;
   } = {userName : "", passWord:"", remember:true}
 
-  constructor() { }
+  constructor(private _authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     if(!!localStorage.getItem('cred')){
@@ -28,7 +30,15 @@ export class WelcomeComponent implements OnInit {
       localStorage.removeItem('cred');
     }
     
-    alert("yoho!");
+    this._authenticationService.login(this.cred.userName, this.cred.passWord).subscribe(
+      response => {alert("logged in!");
+    },
+    error => {
+        alert("Error!");
+    },
+    () => { 
+      console.log('authentication done'); 
+    });
   }
 
 }
