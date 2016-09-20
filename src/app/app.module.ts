@@ -13,12 +13,14 @@ import { AuthenticationService } from './services/authentication.service';
 import './rxjs-operators';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { MenuComponent } from './modules/menu/menu.component';
+import { NavBarComponent } from './modules/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    MenuComponent
+    MenuComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
