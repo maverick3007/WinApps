@@ -14,13 +14,15 @@ import './rxjs-operators';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { MenuComponent } from './modules/menu/menu.component';
 import { NavBarComponent } from './modules/nav-bar/nav-bar.component';
+import { SideBarComponent } from './modules/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     MenuComponent,
-    NavBarComponent
+    NavBarComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
