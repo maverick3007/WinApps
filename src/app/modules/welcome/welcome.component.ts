@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service'
+import { ModalComponent } from 'ng2-bs4-modal/ng2-bs4-modal';
 
 
 @Component({

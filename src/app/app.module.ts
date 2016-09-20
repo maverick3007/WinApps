@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {ModalModule} from 'ng2-bs4-modal/ng2-bs4-modal';
+
 import { AppComponent } from './app.component';
 import { routing,
          appRoutingProviders }  from './app.routing';
@@ -20,7 +22,8 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ModalModule
   ],
   providers: [appRoutingProviders, AuthenticationService],
   bootstrap: [AppComponent]
