@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service'
 import { ModalComponent } from 'ng2-bs4-modal/ng2-bs4-modal';
 
@@ -10,6 +10,9 @@ import { ModalComponent } from 'ng2-bs4-modal/ng2-bs4-modal';
 })
 
 export class WelcomeComponent implements OnInit {
+  @ViewChild('modal')
+    modal: ModalComponent;
+
   cred : {
     userName: string;
     passWord: string;
@@ -35,7 +38,7 @@ export class WelcomeComponent implements OnInit {
       response => {alert("logged in!");
     },
     error => {
-        alert("Error!");
+        this.modal.open();
     },
     () => { 
       console.log('authentication done'); 
