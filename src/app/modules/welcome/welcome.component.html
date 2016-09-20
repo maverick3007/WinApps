@@ -27,13 +27,12 @@
   </div>
   <button [disabled]="!loginForm.form.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
-<button type="button" class="btn btn-default" (click)="modal.open()">Open me!</button>
-<modal #modal>
+<modal #modal >
     <modal-header [show-close]="true">
         <h4 class="modal-title">Oeps!</h4>
     </modal-header>
     <modal-body>
         Er liep iets mis tijdens het aanmelden. Probeer opnieuw...
     </modal-body>
-    <modal-footer [show-default-buttons]="true"></modal-footer>
+    <modal-footer><button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button></modal-footer>
 </modal>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service'
 import { ModalComponent } from 'ng2-bs4-modal/ng2-bs4-modal';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class WelcomeComponent implements OnInit {
     remember: boolean;
   } = {userName : "", passWord:"", remember:true}
 
-  constructor(private _authenticationService: AuthenticationService) { }
+  constructor(private _authenticationService: AuthenticationService, private _router:Router) { }
 
   ngOnInit() {
     if(!!localStorage.getItem('cred')){
@@ -35,7 +36,8 @@ export class WelcomeComponent implements OnInit {
     }
     
     this._authenticationService.login(this.cred.userName, this.cred.passWord).subscribe(
-      response => {alert("logged in!");
+      response => {
+        this._router.navigate(['/menu']);
     },
     error => {
         this.modal.open();

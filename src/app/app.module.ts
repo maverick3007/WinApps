@@ -12,11 +12,13 @@ import { routing,
 import { AuthenticationService } from './services/authentication.service';
 import './rxjs-operators';
 import { WelcomeComponent } from './modules/welcome/welcome.component';
+import { MenuComponent } from './modules/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
