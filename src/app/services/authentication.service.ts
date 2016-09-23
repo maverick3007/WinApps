@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
+
 
 import { ConstantsService } from './constants.service';
 
@@ -9,7 +11,7 @@ export class AuthenticationService {
     private loggedIn = false;
     private userName = "";
 
-    constructor(private _http: Http, private _const: ConstantsService) {
+    constructor(private _http: Http, private _const: ConstantsService, private _router:Router) {
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
@@ -58,7 +60,9 @@ export class AuthenticationService {
 
     logout() {
         localStorage.removeItem('auth_token');
+        localStorage.removeItem('auth_token');
         this.loggedIn = false;
+        this._router.navigate([''])
     }
 
     isLoggedIn() {
