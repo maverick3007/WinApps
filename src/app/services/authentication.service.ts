@@ -2,25 +2,38 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
 
+import { ConstantsService } from './constants.service';
 
 @Injectable()
 export class AuthenticationService {
-  private loggedIn = false;
-  
-  constructor(private _http: Http) {
-    this.loggedIn = !!localStorage.getItem('auth_token');
-   }
+    private loggedIn = false;
+    private userName = "";
 
-       login(username: String, password: String) {
+    constructor(private _http: Http, private _const: ConstantsService) {
+        this.loggedIn = !!localStorage.getItem('auth_token');
+    }
 
-        let creds =  "grant_type=password&username=" + username + "&password=" + password ;
+    login(username: String, password: String) {
+
+        let creds = "grant_type=password&username=" + username + "&password=" + password;
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
 
-        return this._http.post('http://api-mercurio.azurewebsites.net/Token', creds, {
+        return this._http.post(this._const.root_url + 'Token', creds, {
             headers: headers
-        }).map(this.extractData).catch(this.handleError)      
+        }).map(this.extractJwt).catch(this.handleError)
+    }
+
+    getUser() {
+        let authToken = localStorage.getItem('auth_token');
+
+        let headers = new Headers();
+        headers.append('Authorization', `Bearer ${authToken}`);
+
+        return this._http.get(this._const.root_url + 'api/Account/UserInfo', { headers: headers })
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     private handleError(error: any) {
@@ -32,19 +45,24 @@ export class AuthenticationService {
         return Observable.throw(errMsg);
     }
 
-    private extractData(res: Response) {
+    private extractJwt(res: Response) {
         let body = res.json();
-        localStorage.setItem('auth_token', body);
+        localStorage.setItem('auth_token', body.access_token);
         this.loggedIn = true;
     }
 
-  logout() {
-    localStorage.removeItem('auth_token');
-    this.loggedIn = false;
-  }
+    private extractData(res: Response) {
+        let body = res.json();
+        return body || {};
+    }
 
-  isLoggedIn() {
-    return this.loggedIn;
-  }
+    logout() {
+        localStorage.removeItem('auth_token');
+        this.loggedIn = false;
+    }
+
+    isLoggedIn() {
+        return this.loggedIn;
+    }
 
 }

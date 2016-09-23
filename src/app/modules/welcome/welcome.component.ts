@@ -23,6 +23,10 @@ export class WelcomeComponent implements OnInit {
   constructor(private _authenticationService: AuthenticationService, private _router:Router) { }
 
   ngOnInit() {
+    if(this._authenticationService.isLoggedIn()){
+      this._router.navigate(['/menu']);
+    }
+
     if(!!localStorage.getItem('cred')){
       this.cred = JSON.parse(localStorage.getItem('cred'))
     };
