@@ -1,8 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { WelcomeComponent } from './modules/welcome';
-import { MenuComponent} from './modules/menu'
+import { WelcomeComponent } from './components/welcome';
+import { MenuComponent} from './components/menu'
 
 const appRoutes: Routes = [
     { path: '', component: WelcomeComponent },

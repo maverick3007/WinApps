@@ -15,10 +15,10 @@ import { AuthenticationService } from './services/authentication.service';
 import { ArticleService } from './services/article.service';
 
 import './rxjs-operators';
-import { WelcomeComponent } from './modules/welcome/welcome.component';
-import { MenuComponent } from './modules/menu/menu.component';
-import { NavBarComponent } from './modules/nav-bar/nav-bar.component';
-import { SideBarComponent } from './modules/side-bar/side-bar.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 @NgModule({
