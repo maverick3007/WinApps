@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit, CanActivate {
       if(this._authenticationService.isLoggedIn()){
         return true;
       }
-      this._router.navigate(['/welcome']);
+      this._router.navigate(['']);
       return false;
     }
 

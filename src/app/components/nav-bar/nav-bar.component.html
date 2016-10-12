@@ -2,7 +2,7 @@
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
 
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" (click)="(clickHome())"> <img style="height:30px" src="../../../assets/Anka_logo.svg"></a>
 
     <!-- Links -->
     <ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
         <a class="nav-link" (click)="(logout())">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">{{userName}}</a>
+        <a class="nav-link" (click)="(clickName())">{{userName}}</a>
       </li>
     </ul>
   </nav>
