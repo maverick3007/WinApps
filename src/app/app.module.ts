@@ -19,6 +19,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { WebshopStatusComponent } from './components/menu/menucards/webshop-status/webshop-status.component';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     WelcomeComponent,
     MenuComponent,
     NavBarComponent,
-    SideBarComponent
+    SideBarComponent, WebshopStatusComponent
   ],
   imports: [
     BrowserModule,
