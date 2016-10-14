@@ -13,6 +13,7 @@ import { routing,
 import { ConstantsService } from './services/constants.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ArticleService } from './services/article.service';
+import { WebshopService } from './services/webshop.service';
 
 import './rxjs-operators';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -38,7 +39,7 @@ import { WebshopStatusComponent } from './components/menu/menucards/webshop-stat
     ModalModule,
     SidebarModule
   ],
-  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService],
+  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

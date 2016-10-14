@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebshopService } from '../../../../services/webshop.service'
 
 @Component({
   selector: 'app-webshop-status',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebshopStatusComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _webshopservice: WebshopService) { }
+  webshopStatus =  { "Neworders": 0, "OrderAmount":0, "NewCustomers":0 };
   ngOnInit() {
+    this.getWebshopStatus();
+  }
+
+  getWebshopStatus(){
+    this._webshopservice.getWebShopStatus()
+    .subscribe(webshopStatus => this.webshopStatus = webshopStatus)
   }
 
 }
