@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { WebshopService } from '../../../../services/webshop.service'
 
 @Component({
@@ -8,7 +9,7 @@ import { WebshopService } from '../../../../services/webshop.service'
 })
 export class WebshopStatusComponent implements OnInit {
 
-  constructor(private _webshopservice: WebshopService) { }
+  constructor(private _webshopservice: WebshopService, private _router: Router) { }
   webshopStatus =  { "Neworders": 0, "OrderAmount":0, "NewCustomers":0 };
   ngOnInit() {
     this.getWebshopStatus();
@@ -17,6 +18,10 @@ export class WebshopStatusComponent implements OnInit {
   getWebshopStatus(){
     this._webshopservice.getWebShopStatus()
     .subscribe(webshopStatus => this.webshopStatus = webshopStatus)
+  }
+
+  gotoWebshop(){
+    this._router.navigate(['/webshop']);
   }
 
 }
