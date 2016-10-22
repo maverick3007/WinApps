@@ -22,6 +22,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { WebshopStatusComponent } from './components/menu/menucards/webshop-status/webshop-status.component';
 import { WebshopComponent } from './components/webshop/webshop.component';
+import { WebshopOrderheadersComponent } from './components/webshop/webshop-orderheaders/webshop-orderheaders.component';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { WebshopComponent } from './components/webshop/webshop.component';
     WelcomeComponent,
     MenuComponent,
     NavBarComponent,
-    SideBarComponent, WebshopStatusComponent, WebshopComponent
+    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent
   ],
   imports: [
     BrowserModule,
