@@ -22,6 +22,17 @@ export class WebshopService {
       .catch(this.handleError);
   }
 
+  getOrderHeaders() {
+    let authToken = localStorage.getItem('auth_token');
+
+    let headers = new Headers();
+    headers.append('Authorization', `Bearer ${authToken}`);
+
+    return this._http.get(this._const.root_url + 'api/WebShop/GetOrderHeaders', { headers: headers })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message

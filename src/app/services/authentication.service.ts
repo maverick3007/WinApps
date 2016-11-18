@@ -60,7 +60,6 @@ export class AuthenticationService {
 
     logout() {
         localStorage.removeItem('auth_token');
-        localStorage.removeItem('auth_token');
         this.loggedIn = false;
         this._router.navigate([''])
     }

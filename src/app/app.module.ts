@@ -23,6 +23,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { WebshopStatusComponent } from './components/menu/menucards/webshop-status/webshop-status.component';
 import { WebshopComponent } from './components/webshop/webshop.component';
 import { WebshopOrderheadersComponent } from './components/webshop/webshop-orderheaders/webshop-orderheaders.component';
+import { DatenumberPipe } from './pipes/datenumber.pipe';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { WebshopOrderheadersComponent } from './components/webshop/webshop-order
     WelcomeComponent,
     MenuComponent,
     NavBarComponent,
-    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent
+    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent, DatenumberPipe
   ],
   imports: [
     BrowserModule,
