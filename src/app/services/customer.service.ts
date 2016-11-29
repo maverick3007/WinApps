@@ -3,49 +3,25 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
 
-
 import { ConstantsService } from './constants.service';
 
 @Injectable()
-export class WebshopService {
+export class CustomerService {
 
   constructor(private _http: Http, private _const: ConstantsService) { }
 
-  getOrderDetail(id:string){
+  public search(name:string){
     let authToken = localStorage.getItem('auth_token');
 
     let headers = new Headers();
     headers.append('Authorization', `Bearer ${authToken}`);
 
-    return this._http.get(this._const.root_url + 'api/WebShop/GetOrderDetail?id='+id, { headers: headers })
-      .map(this.extractData)
-      .catch(this.handleError);
-
-  }
-
-  getWebShopStatus() {
-    let authToken = localStorage.getItem('auth_token');
-
-    let headers = new Headers();
-    headers.append('Authorization', `Bearer ${authToken}`);
-
-    return this._http.get(this._const.root_url + 'api/WebShop/Getstatus', { headers: headers })
+    return this._http.get(this._const.root_url + 'api/customer?name='+ name, { headers: headers })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-  getOrderHeaders() {
-    let authToken = localStorage.getItem('auth_token');
-
-    let headers = new Headers();
-    headers.append('Authorization', `Bearer ${authToken}`);
-
-    return this._http.get(this._const.root_url + 'api/WebShop/GetOrderHeaders', { headers: headers })
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any) {
+    private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
@@ -58,5 +34,4 @@ export class WebshopService {
     let body = res.json();
     return body || {};
   }
-
 }

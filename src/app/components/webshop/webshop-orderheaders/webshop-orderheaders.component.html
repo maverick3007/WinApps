@@ -1,3 +1,26 @@
-<p>
-  webshop-orderheaders works!
-</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid maincontainer">
+	<h3>Web Orders</h3>
+	<div class="row">
+		<table class="table table-hover">
+			<thead class="thead-inverse">
+				<tr>
+					<th>ID</th>
+					<th>Klant</th>
+					<th>Bedrag</th>
+					<th (click)="sortOnDate()">Datum</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let header of headers">
+					<th (click)="selectOrder(header)" scope="row">{{header.Id}}</th>
+					<td>{{header.ClientName}}</td>
+					<td>{{header.OrderAmount | currency:'EUR':true}}</td>
+					<td>{{header.OrderDate | datenumber}}</td>
+					<td>{{header.Status}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

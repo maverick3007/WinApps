@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {ModalModule} from 'ng2-bs4-modal/ng2-bs4-modal';
@@ -14,6 +14,7 @@ import { ConstantsService } from './services/constants.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ArticleService } from './services/article.service';
 import { WebshopService } from './services/webshop.service';
+import { CustomerService} from './services/customer.service';
 
 import './rxjs-operators';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -24,6 +25,8 @@ import { WebshopStatusComponent } from './components/menu/menucards/webshop-stat
 import { WebshopComponent } from './components/webshop/webshop.component';
 import { WebshopOrderheadersComponent } from './components/webshop/webshop-orderheaders/webshop-orderheaders.component';
 import { DatenumberPipe } from './pipes/datenumber.pipe';
+import { OrderDetailComponent } from './components/webshop/order-detail/order-detail.component';
+import { CustomerSearchComponent } from './components/customers/customer-search/customer-search.component';
 
 
 @NgModule({
@@ -32,17 +35,17 @@ import { DatenumberPipe } from './pipes/datenumber.pipe';
     WelcomeComponent,
     MenuComponent,
     NavBarComponent,
-    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent, DatenumberPipe
+    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent, DatenumberPipe, OrderDetailComponent, CustomerSearchComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule, ReactiveFormsModule,
     HttpModule,
     routing,
     ModalModule,
     SidebarModule
   ],
-  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService],
+  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

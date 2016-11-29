@@ -24,6 +24,10 @@ export class NavBarComponent implements OnInit {
     )
   }
 
+  clickLink(link){
+    this._router.navigate(['/customers']);
+  }
+
   clickName(){
     alert("To be implemented!");
   }

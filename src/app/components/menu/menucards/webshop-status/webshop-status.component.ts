@@ -21,7 +21,7 @@ export class WebshopStatusComponent implements OnInit {
   }
 
   gotoWebshop(){
-    this._router.navigate(['/webshop']);
+    this._router.navigate(['/webshop/orders']);
   }
 
 }
