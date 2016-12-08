@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import {FormControl} from '@angular/forms';
 import { CustomerService} from '../../../services/customer.service';
 
@@ -11,7 +12,7 @@ export class CustomerSearchComponent implements OnInit {
   searchString = new FormControl();
   customers = [];
   showAndTell = "";
-  constructor(private _customerService: CustomerService) {
+  constructor(private _router: Router, private _customerService: CustomerService) {
     this.searchString.valueChanges
       .debounceTime(700)
       .subscribe(searchString => this._customerService.search(searchString)
@@ -23,5 +24,9 @@ export class CustomerSearchComponent implements OnInit {
 
   setVal(val){
     this.showAndTell = val;
+  }
+
+  selectCustomer(cust){
+    this._router.navigate(['/customers/detail' , cust])
   }
 }

@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
 
   getUserName(){
     this._authenticationService.getUser()
-    .subscribe(userName => this.userName = userName.Email,
+    .subscribe(login => this.userName = login,
     error => this.userName = ""
     )
   }

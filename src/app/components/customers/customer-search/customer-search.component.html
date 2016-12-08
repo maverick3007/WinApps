@@ -1,17 +1,24 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid maincontainer">
-	<div class="form-group ">
-		<div class="input-group ">
-			<input type="text" [formControl]="searchString" class="  search-query form-control" placeholder="Search" />
+<div class="container-fluid ">
+	<div class="row custsearch" >
+		<div class="col-md-2"><span class="search-title"><i class="fa fa-user"></i> Naam klant:</span>
+		</div>
+		<div class="form-group col-md-10">
+			<div class="input-group ">
+				<input type="text" [formControl]="searchString" class="  search-query form-control" placeholder="Search" />
+			</div>
 		</div>
 	</div>
+	<h4>Klanten:</h4>
+	<div class="search-results">
 	<div class="list-group">
-  <a *ngFor="let customer of customers" class="list-group-item list-group-item-action">
-		<div class="row">
-		<div class="col-md-3">{{customer.Name}}</div>
-		<div class="col-md-4">{{customer.Address}}</div>
-		<div class="col-md-1">{{customer.PostalCode}}</div>
-		<div class="col-md-1">{{customer.City}}</div>
-		</div>
+		<a (click)="selectCustomer(customer.Id)" *ngFor="let customer of customers" class="list-group-item list-group-item-action">
+			<div class="row" >
+				<div class="col-md-3">{{customer.Name}}</div>
+				<div class="col-md-4">{{customer.Address}}</div>
+				<div class="col-md-1">{{customer.PostalCode}}</div>
+				<div class="col-md-1">{{customer.City}}</div>
+			</div>
 		</a>
-</div>
+	</div>
+	</div>

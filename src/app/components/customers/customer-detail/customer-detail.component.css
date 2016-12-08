@@ -1,12 +1,12 @@
-.custsearch{
+.custbox{
     background-color: #0080ff;
     padding: 30px;
 }
-.search-title{
+.box-title{
     font-size: x-large;
     color:white;
 }
 
-.search-results{
+.datarow{
     margin-top:20px;
 }

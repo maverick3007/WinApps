@@ -15,6 +15,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { ArticleService } from './services/article.service';
 import { WebshopService } from './services/webshop.service';
 import { CustomerService} from './services/customer.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import './rxjs-operators';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -27,6 +28,7 @@ import { WebshopOrderheadersComponent } from './components/webshop/webshop-order
 import { DatenumberPipe } from './pipes/datenumber.pipe';
 import { OrderDetailComponent } from './components/webshop/order-detail/order-detail.component';
 import { CustomerSearchComponent } from './components/customers/customer-search/customer-search.component';
+import { CustomerDetailComponent } from './components/customers/customer-detail/customer-detail.component';
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { CustomerSearchComponent } from './components/customers/customer-search/
     WelcomeComponent,
     MenuComponent,
     NavBarComponent,
-    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent, DatenumberPipe, OrderDetailComponent, CustomerSearchComponent
+    SideBarComponent, WebshopStatusComponent, WebshopComponent, WebshopOrderheadersComponent, DatenumberPipe, OrderDetailComponent, CustomerSearchComponent, CustomerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { CustomerSearchComponent } from './components/customers/customer-search/
     ModalModule,
     SidebarModule
   ],
-  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService, CustomerService],
+  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService, CustomerService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

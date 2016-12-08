@@ -11,6 +11,9 @@ export class AuthenticationService {
     private loggedIn = false;
     private userName = "";
 
+    // store the URL so we can redirect after logging in
+    redirectUrl: string;
+
     constructor(private _http: Http, private _const: ConstantsService, private _router:Router) {
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
@@ -35,12 +38,20 @@ export class AuthenticationService {
 
         return this._http.get(this._const.root_url + 'api/Account/UserInfo', { headers: headers })
             .map(this.extractData)
-            .catch(this.handleError);
+            .catch(err => {
+                if (err.status  == 401){
+                    this.logout();
+                    return Observable.arguments;
+                }else{
+                    this.handleError(err);
+                }
+            });
     }
 
     private handleError(error: any) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
+
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
@@ -55,7 +66,7 @@ export class AuthenticationService {
 
     private extractData(res: Response) {
         let body = res.json();
-        return body || {};
+        return body.Email || {};
     }
 
     logout() {
