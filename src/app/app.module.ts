@@ -14,6 +14,7 @@ import { ConstantsService } from './services/constants.service';
 import { AuthenticationService } from './services/authentication.service';
 import { ArticleService } from './services/article.service';
 import { WebshopService } from './services/webshop.service';
+import { AdveoOrderService } from './services/adveo-order.service';
 import { CustomerService} from './services/customer.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -47,7 +48,7 @@ import { CustomerDetailComponent } from './components/customers/customer-detail/
     ModalModule,
     SidebarModule
   ],
-  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, WebshopService, CustomerService, AuthGuardService],
+  providers: [appRoutingProviders, AuthenticationService, ArticleService, ConstantsService, AdveoOrderService, WebshopService, CustomerService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
